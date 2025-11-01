@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _cubePrefub;
+    [SerializeField] private Cube _cubePrefub;
+    [SerializeField] private Explosion _explosion;
 
     private int _scaleReductionPerGeneration = 2;
     private int _dividePartsMin = 2;
@@ -10,15 +11,15 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        GameObject startCube = Instantiate(_cubePrefub);
+        Cube startCube = Instantiate(_cubePrefub);
+        startCube.Cliñked += DestroyCube;
         startCube.transform.position = this.transform.position;
-        startCube.GetComponent<ExplosiveCube>().Destroing += DestroyCube;
     }
 
-    public void MakeCubes(GameObject parentCube)
+    public void Division(Cube parentCube)
     {
-        GameObject[] newCubes = new GameObject[Random.Range(_dividePartsMin, _dividePartsMax)];
-        int childrenGeneration = parentCube.GetComponent<ExplosiveCube>().Generation + 1;
+        Cube[] newCubes = new Cube[Random.Range(_dividePartsMin, _dividePartsMax)];
+        int childrenGeneration = parentCube.Generation + 1;
         Vector3 parentPosition = parentCube.transform.position;
         Vector3 childrenScale = Vector3.one *
             ((float)_scaleReductionPerGeneration / (float)(childrenGeneration * _scaleReductionPerGeneration));
@@ -26,14 +27,17 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < newCubes.Length; i++)
         {
             newCubes[i] = Instantiate(_cubePrefub);
-            newCubes[i].GetComponent<ExplosiveCube>().Initialize(childrenGeneration, parentPosition, childrenScale);
+            newCubes[i].Cliñked += DestroyCube;
+            newCubes[i].Initialize(childrenGeneration, parentPosition, childrenScale);
             newCubes[i].GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
-            newCubes[i].GetComponent<ExplosiveCube>().Destroing += DestroyCube;
         }
+
+        _explosion.Initiate(newCubes);
     }
 
-    public void DestroyCube(GameObject cube)
+    public void DestroyCube(Cube cube)
     {
-        Destroy(cube);
+        cube.Cliñked -= DestroyCube;
+        Destroy(cube.gameObject);
     }
 }

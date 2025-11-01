@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 78522436}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 5, z: -5.5}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalPosition: {x: 0, y: 5, z: -6}
+  m_LocalScale: {x: 10, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 643302961}
@@ -212,8 +212,8 @@ Transform:
   m_GameObject: {fileID: 118497592}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 5, z: 5.5}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalPosition: {x: 0, y: 5, z: 6}
+  m_LocalScale: {x: 10, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 643302961}
@@ -379,8 +379,8 @@ Transform:
   m_GameObject: {fileID: 234052411}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 5.5, y: 5, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalPosition: {x: 6, y: 5, z: 0}
+  m_LocalScale: {x: 10, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 643302961}
@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
+  _triggerKey: 0
 --- !u!1 &1490543054
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,8 +679,8 @@ Transform:
   m_GameObject: {fileID: 1490543054}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.5, y: 5, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalPosition: {x: -6, y: 5, z: 0}
+  m_LocalScale: {x: 10, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 643302961}
@@ -724,8 +725,9 @@ GameObject:
   - component: {fileID: 1873380756}
   - component: {fileID: 1873380755}
   - component: {fileID: 1873380754}
+  - component: {fileID: 1873380757}
   m_Layer: 0
-  m_Name: SceneController
+  m_Name: CubeOrganiser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -743,7 +745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06041565bb71154ca2a8b44637bef99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cubePrefub: {fileID: 6433141790100904529, guid: b86cf67b0d803dd4d8b278a3dfd6478c, type: 3}
+  _cubePrefub: {fileID: 6705505611112020491, guid: b86cf67b0d803dd4d8b278a3dfd6478c, type: 3}
+  _explosion: {fileID: 1873380757}
 --- !u!114 &1873380755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,6 +776,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1873380757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873380752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355e542535cce374c963b47ce15d1f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _impulseForceMin: 10
+  _impulseForceMax: 15
 --- !u!1 &1890887871
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,8 +817,8 @@ Transform:
   m_GameObject: {fileID: 1890887871}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.5, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalPosition: {x: 0, y: 11, z: 0}
+  m_LocalScale: {x: 10, y: 2, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 643302961}
