@@ -8,7 +8,7 @@ public class Raycaster : MonoBehaviour
 
     public event Action<RaycastHit> CubeDetected;
 
-    void Update()
+    public void Update()
     {
         if (Input.GetMouseButtonDown(_triggerKey))
         {

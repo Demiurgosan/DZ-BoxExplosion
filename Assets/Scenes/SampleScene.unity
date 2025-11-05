@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94029a71747fb1c4eb345c3729147e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _raycastTrigger: {fileID: 963194229}
+  _raycaster: {fileID: 963194229}
   _spawner: {fileID: 1873380754}
 --- !u!4 &1873380756
 Transform:
@@ -790,6 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _impulseForceMin: 10
   _impulseForceMax: 15
+  _explosionRadius: 10
 --- !u!1 &1890887871
 GameObject:
   m_ObjectHideFlags: 0

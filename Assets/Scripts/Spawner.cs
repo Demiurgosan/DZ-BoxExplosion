@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
             newCubes[i].GetComponent<Renderer>().material.color = new Color(Random.value, Random.value, Random.value);
         }
 
-        _explosion.Initiate(newCubes);
+        _explosion.Initiate(newCubes, parentCube);
     }
 
     public void DestroyCube(Cube cube)

@@ -4,18 +4,16 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] private float _impulseForceMin = 5f;
     [SerializeField] private float _impulseForceMax = 10f;
+    [SerializeField] private float _explosionRadius = 5f;
 
-    public void Initiate(Cube[] newCubes)
+    public void Initiate(Cube[] newCubes, Cube perentCube)
     {
-        Vector3 impulseDirection;
-
         foreach (Cube cube in newCubes)
         {
-            if (cube.gameObject.TryGetComponent(out Rigidbody rigidbody))
+            if (cube.RB)
             {
-                impulseDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f))
-               * Random.Range(_impulseForceMin, _impulseForceMax);
-                rigidbody.AddForce(impulseDirection, ForceMode.Impulse);
+                float explosionForce = Random.Range(_impulseForceMin, _impulseForceMax);
+                cube.RB.AddExplosionForce(explosionForce, perentCube.transform.position, _explosionRadius);
             }
         }
     }
