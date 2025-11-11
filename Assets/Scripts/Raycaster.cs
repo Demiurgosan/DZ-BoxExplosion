@@ -4,21 +4,27 @@ using UnityEngine;
 public class Raycaster : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] private int _triggerKey = 0;
+    [SerializeField] private UserInput _userInput;
 
-    public event Action<RaycastHit> CubeDetected;
+    public event Action<Cube> CubeDetected;
 
-    public void Update()
+    private void OnEnable()
     {
-        if (Input.GetMouseButtonDown(_triggerKey))
-        {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit) && hit.collider.TryGetComponent(out Cube cube))
-            {
-                CubeDetected.Invoke(hit);
-            }
-        }
+        _userInput.KeyTriggered += TryDetectCube;
     }
+
+    private void OnDisable()
+    {
+        _userInput.KeyTriggered -= TryDetectCube;
+    }
+
+    private void TryDetectCube()
+    {
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.TryGetComponent<Cube>(out Cube hittedCube))
+        {
+            CubeDetected.Invoke(hittedCube);
+        }
+    } 
 }

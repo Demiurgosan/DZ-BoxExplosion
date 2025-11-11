@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194230}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
@@ -651,6 +652,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
+  _userInput: {fileID: 963194230}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b884873f76bb74e9a4c6f702657606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _triggerKey: 0
 --- !u!1 &1490543054
 GameObject:
@@ -746,7 +760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cubePrefub: {fileID: 6705505611112020491, guid: b86cf67b0d803dd4d8b278a3dfd6478c, type: 3}
-  _explosion: {fileID: 1873380757}
 --- !u!114 &1873380755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,6 +774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _raycaster: {fileID: 963194229}
   _spawner: {fileID: 1873380754}
+  _explosion: {fileID: 1873380757}
 --- !u!4 &1873380756
 Transform:
   m_ObjectHideFlags: 0
